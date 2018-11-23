@@ -42,11 +42,11 @@ pub struct SVG {
     props: SvgProps,
 }
 
-impl<U> Renderable<U> for SVG
+impl<CTX: 'static, U> Renderable<CTX, U> for SVG
     where
-        U: Component
+        U: Component<CTX>
 {
-    fn view(&self) -> Html<U> {
+    fn view(&self) -> Html<CTX, U> {
         use stdweb::unstable::TryFrom;
         let mut html = String::new();
         let props = &self.props;
@@ -110,17 +110,17 @@ pub enum Msg {
     SetViewBox(String),
 }
 
-impl Component for SVG {
+impl<CTX: 'static> Component<CTX> for SVG {
     type Message = Msg;
     type Properties = SvgProps;
 
-    fn create(props: Self::Properties, _: ComponentLink<Self>) -> Self {
+    fn create(props: Self::Properties, _: &mut Env<CTX, Self>) -> Self {
         SVG {
             props,
         }
     }
 
-    fn update(&mut self, msg: Self::Message) -> ShouldRender {
+    fn update(&mut self, msg: Self::Message, _: &mut Env<CTX, Self>) -> ShouldRender {
         use Msg::*;
         match msg {
             SetHref(v) => {
@@ -140,7 +140,7 @@ impl Component for SVG {
         true
     }
 
-    fn change(&mut self, props: Self::Properties) -> ShouldRender {
+    fn change(&mut self, props: Self::Properties, _: &mut Env<CTX, Self>) -> ShouldRender {
         let changed = self.props != props;
         self.props = props;
         changed

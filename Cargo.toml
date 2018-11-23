@@ -2,7 +2,15 @@
 name = "yew_svg"
 version = "0.1.0"
 authors = ["ywzjackal@163.com <ywzjackal@163.com>"]
+license = "MIT/Apache-2.0"
+readme = "README.md"
+keywords = ["web", "asmjs", "webasm", "javascript", "svg", "yew"]
+categories = ["gui", "web-programming"]
+description = "SVG icon helper for yew framework"
+repository = "https://github.com/ywzjackal/yew_svg"
+homepage = "https://github.com/ywzjackal/yew_svg"
+documentation = "https://github.com/ywzjackal/yew_svg"
 
 [dependencies]
 stdweb = "0.4"
-yew = {git="https://github.com/DenisKolodin/yew.git"}
+yew = "0.4"

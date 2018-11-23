@@ -7,35 +7,35 @@ use yew_svg::*;
 
 fn main() {
     yew::initialize();
-    App::<Model>::new().mount_to_body();
+    App::<u32, Model>::new(0).mount_to_body();
     yew::run_loop();
 }
 
 struct Model;
 
-impl Component for Model {
+impl<CTX: 'static> Component<CTX> for Model {
     type Message = ();
     type Properties = ();
 
-    fn create(_: Self::Properties, _link: ComponentLink<Self>) -> Self {
+    fn create(_: Self::Properties, _: &mut Env<CTX, Self>) -> Self {
         Model
     }
 
-    fn update(&mut self, _msg: Self::Message) -> ShouldRender {
+    fn update(&mut self, _msg: Self::Message, _: &mut Env<CTX, Self>) -> ShouldRender {
         false
     }
 }
 
-impl Renderable<Model> for Model {
-    fn view(&self) -> Html<Self> {
+impl<CTX: 'static> Renderable<CTX, Model> for Model {
+    fn view(&self) -> Html<CTX, Self> {
         html! {
             <div>
                 <h1>{ "SVG by remote defs:" }</h1>
                 <code>{ r#"<SVG: href="/svg-defs.svg#shape", height="50", width="50", />"# }</code>
-                <SVG: href="/svg-defs.svg#shape", height="50", width="50", />
+                <div><SVG: href="/svg-defs.svg#shape", height="50", width="50", /></div>
                 <h1>{ "SVG by svg file:" }</h1>
                 <code>{ r#"<SVG: content=include_str!("../svgs/satellite.svg"), height="50", width="50",/>"# }</code>
-                <SVG: content=include_str!("../svgs/satellite.svg"), height="50", width="50",/>
+                <div><SVG: content=include_str!("../svgs/satellite.svg"), height="50", width="50",/></div>
                 <h1>{ "Attribute support:" }</h1>
                 <code> { "width, height, class, style, view_box" } </code>
             </div>

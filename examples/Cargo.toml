@@ -4,5 +4,5 @@ version = "0.1.0"
 authors = ["ywzjackal@163.com <ywzjackal@163.com>"]
 
 [dependencies]
-yew = {git="https://github.com/DenisKolodin/yew.git"}
+yew = "0.4"
 yew_svg = {path="../"}
