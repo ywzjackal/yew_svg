@@ -1,0 +1,8 @@
+[package]
+name = "yew_svg"
+version = "0.1.0"
+authors = ["ywzjackal@163.com <ywzjackal@163.com>"]
+
+[dependencies]
+stdweb = "0.4"
+yew = {git="https://github.com/DenisKolodin/yew.git"}
