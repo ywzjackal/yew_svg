@@ -1,7 +1,5 @@
 # SVG Icon Helper for [yew framework](https://github.com/DenisKolodin/yew) 
 
-need yew version: 0.5.0 on master
-
 ## USAGE
 
 ### 1) with remote svg-defs:
