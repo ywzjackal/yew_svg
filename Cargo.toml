@@ -5,4 +5,4 @@ authors = ["ywzjackal@163.com <ywzjackal@163.com>"]
 
 [dependencies]
 stdweb = "0.4"
-yew = {git="https://github.com/DenisKolodin/yew.git"}
+yew = "0.5"
