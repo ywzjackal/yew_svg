@@ -13,4 +13,4 @@ documentation = "https://github.com/ywzjackal/yew_svg"
 
 [dependencies]
 stdweb = "0.4"
-yew = "0.5"
+yew = {git="https://github.com/DenisKolodin/yew.git"}

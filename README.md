@@ -1,6 +1,6 @@
 # SVG Icon Helper for [yew framework](https://github.com/DenisKolodin/yew) 
 
-support yew 0.5
+support yew 0.6
 
 ## USAGE
 
